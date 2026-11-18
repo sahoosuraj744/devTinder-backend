@@ -14,6 +14,7 @@ import requestRouter from "./routes/request.js";
 import userRouter from "./routes/user.js";
 app.use(express.json());
 app.use(cookieParser())
+import { runCronJob } from "./utils/cronjob.js"; 
 const port=process.env.PORT||3000
 app.use(cors({
     origin:"http://localhost:5173",
@@ -34,3 +35,5 @@ connectDB()
     .catch((err) => {
         console.log(err.message);
     });
+
+    runCronJob()
