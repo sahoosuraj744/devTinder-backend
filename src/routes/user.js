@@ -15,12 +15,12 @@ userRouter.get("/user/requests/received",userAuth,async(req,res)=>{
      }).populate("fromUserId",["firstName","lastName","age","gender","photoUrl"])
     //.populate("fromUserId","firstName lastName")
     // we can use both this line to populate firstName and lastName
-     res.json({messgae:"Data fetched successfully",
+     res.status(200).json({messgae:"Data fetched successfully",
       data:connectionRequests
      })
 
    } catch (error) {
-    res.status(400).message({message:error.message})
+    res.status(400).json({message:error.message})
    }
 })
 userRouter.get("/user/connections",userAuth,async(req,res)=>{
