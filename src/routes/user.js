@@ -40,7 +40,7 @@ userRouter.get("/user/connections",userAuth,async(req,res)=>{
     })
     res.status(200).json({data})
   } catch (error) {
-    res.status(400).message({message:error.message})
+    res.status(400).json({message:error.message})
   }
 })
 userRouter.get("/feed",userAuth,async(req,res)=>{
