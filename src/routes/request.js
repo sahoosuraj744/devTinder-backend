@@ -2,6 +2,7 @@ import express from 'express'
 import { userAuth } from '../middlewares/auth.js'
 import { ConnectionRequest } from '../models/connectionRequest.js'
 import { User } from '../models/user.js'
+import sendEmail from '../utils/sendEmail.js'
 const requestRouter = express.Router()
 requestRouter.post("/request/send/:status/:toUserId", userAuth, async (req, res) => {
     try {
@@ -32,6 +33,9 @@ requestRouter.post("/request/send/:status/:toUserId", userAuth, async (req, res)
             status
          })
         const data= await connectionRequest.save()
+        const emailRes=await sendEmail.run("A new friend request from "+req.user.firstName + " is " + status +" in "+toUser.firstName)
+        console.log(emailRes);
+        
         res.status(200).json({message:req.user.firstName + " is " + status +" in "+toUser.firstName,data})  
     } catch (error) {
         res.status(404).send("ERROR: " + error.message)

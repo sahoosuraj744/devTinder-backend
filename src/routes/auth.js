@@ -17,7 +17,7 @@ authRouter.post("/signup", async (req, res) => {
             password: passwordHash
         })
        const savedUser= await user.save()
-       const token=jwt.sign({_id:user._id}, "DEVTinder$790", { expiresIn: "1d" })
+       const token=jwt.sign({_id:user._id},process.env.JWT_SECRET , { expiresIn: "1d" })
        res.cookie("token",token,{expires:new Date(Date.now()+8*3600000)})
         res.json({messsage:"User added successfully",data:savedUser})
         

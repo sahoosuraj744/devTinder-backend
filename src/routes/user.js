@@ -20,7 +20,7 @@ userRouter.get("/user/requests/received",userAuth,async(req,res)=>{
      })
 
    } catch (error) {
-    res.status(400).message(error.message)
+    res.status(400).message({message:error.message})
    }
 })
 userRouter.get("/user/connections",userAuth,async(req,res)=>{
