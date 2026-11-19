@@ -3,7 +3,7 @@ import {subDays,startOfDay,endOfDay} from 'date-fns'
 import sendEmail from './sendEmail.js'
 import { ConnectionRequest } from '../models/connectionRequest.js'
 export const runCronJob=()=>{
-    cron.schedule("42 21 * * *",async ()=>{
+    cron.schedule("25 32 13 * * *",async ()=>{
         const yesterday=subDays(new Date(),0)
         const yesterdayStart=startOfDay(yesterday)
         const yesterdayEnd=endOfDay(yesterday)
@@ -25,7 +25,6 @@ export const runCronJob=()=>{
              
           } catch (error) {
             console.error(error);
-            
           }
         }
     } catch (error) {

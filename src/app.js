@@ -30,7 +30,7 @@ connectDB()
     .then(() => {
         console.log("DB connected");
         app.listen(port, () => {
-            console.log("http://localhost:7777");
+            console.log(`http://localhost:${port}`);
         });
     })
     .catch((err) => {

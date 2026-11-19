@@ -7,8 +7,8 @@
   "type": "module",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon src/app.js",
-    "start": "node src/app.js"
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js"
   },
   "dependencies": {
     "@aws-sdk/client-ses": "^3.1170.0",
