@@ -16,6 +16,7 @@ import userRouter from "./routes/user.js";
 app.use(express.json());
 app.use(cookieParser())
 import { runCronJob } from "./utils/cronjob.js"; 
+import paymentRouter from './routes/payment.js'
 const port=process.env.PORT||3000
 app.use(cors({
     origin:"http://localhost:5173",
@@ -26,6 +27,7 @@ app.use("/",authRouter)
 app.use("/",requestRouter)
 app.use("/",profileRouter)
 app.use("/",userRouter)
+app.use("/",paymentRouter)
 connectDB()
     .then(() => {
         console.log("DB connected");

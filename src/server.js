@@ -5,5 +5,4 @@ console.log("ENV CHECK:", {
     access: Boolean(process.env.AWS_ACCESS_KEY_ID),
     secret: Boolean(process.env.AWS_SECRET_ACCESS_KEY)
 });
-
 await import("./app.js");
